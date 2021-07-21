@@ -12,6 +12,7 @@ class Team {
     }
 
     renderTeam() {
-        return (`<h3> ${this.name} </h3>`)
+        return (`<div class= "team"><h3> ${this.name} </h3>
+        <img class= "team-image" src= "${this.logo_img}" /></div>`) 
     }
 }

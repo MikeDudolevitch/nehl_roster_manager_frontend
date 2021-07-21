@@ -3,3 +3,9 @@
     height: 20vw;
     object-fit: cover;
 }
+
+#team-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}

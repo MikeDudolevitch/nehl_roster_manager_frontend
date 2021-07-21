@@ -11,10 +11,10 @@
 
 #modal {
     position: absolute;
-    width: 50vw;
-    height: 50vh;
-    top: 25vh;
-    left: 25vw;
+    width: 60vw;
+    height: 60vh;
+    top: 20vh;
+    left: 20vw;
     background-color: aqua;
 }
 

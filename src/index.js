@@ -1,5 +1,6 @@
 const modal = document.getElementById("modal")
 const closeModalBtn = document.getElementById("close-modal")
+const modalContent = modal.querySelector("#modal-content")
 
 document.addEventListener('DOMContentLoaded', () => {
     getTeam()
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 closeModalBtn.addEventListener('click', () => {
     modal.classList.add("hide")
+    modalContent.innerHTML = ""
 })
 
 

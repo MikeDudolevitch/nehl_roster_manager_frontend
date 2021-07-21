@@ -8,7 +8,10 @@ class Team {
 
     addToDom() {
         const teamOnDom = document.querySelector('#team-container')
+        teamOnDom.innerHTML += this.renderTeam()
     }
 
-
+    renderTeam() {
+        return (`<h3> ${this.name} </h3>`)
+    }
 }

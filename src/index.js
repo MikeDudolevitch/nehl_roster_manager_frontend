@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoadec', () => {
+document.addEventListener('DOMContentLoaded', () => {
     getTeam()
 })
 

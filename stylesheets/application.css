@@ -7,5 +7,17 @@
 #team-container {
     display: flex;
     flex-direction: row;
-    position: relative;
+}
+
+#modal {
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    top: 25vh;
+    left: 25vw;
+    background-color: aqua;
+}
+
+.hide {
+    display: none;
 }

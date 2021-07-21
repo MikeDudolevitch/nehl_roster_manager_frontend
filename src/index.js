@@ -1,3 +1,6 @@
+const modal = document.getElementById("modal")
+const closeModalBtn = document.getElementById("close-modal")
+
 document.addEventListener('DOMContentLoaded', () => {
     getTeam()
 })

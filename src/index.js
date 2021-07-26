@@ -11,8 +11,6 @@ closeModalBtn.addEventListener('click', () => {
     modalContent.innerHTML = ""
 })
 
-
-
 function getTeam(){
     fetch('http://localhost:3000/api/teams')
     .then(r => r.json())

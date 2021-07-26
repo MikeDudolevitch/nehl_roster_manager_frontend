@@ -21,3 +21,7 @@
 .hide {
     display: none;
 }
+
+.player {
+    width: relative;
+}

@@ -8,6 +8,7 @@ class Team {
     }
     static all = []
 
+    
     addToDom() {
         const teamOnDom = document.querySelector('#team-container')
         const teamDiv = document.createElement("div")
@@ -19,8 +20,15 @@ class Team {
             this.modal.classList.remove("hide")
             fetch(`http://localhost:3000/api/teams/${this.id}`)
             .then(r => r.json())
-            .then( () => {
-                modalContent.innerHTML
+            .then( (t) => {
+                t.players.forEach(player => {
+                    const playerContent = document.createElement("div")
+                    playerContent.classList.add("player")
+                    playerContent.innerHTML += `Name: ${player.first_name} ${player.last_name} Shoots: ${player.handedness} Position: ${player.primary_position}`
+                    modalContent.appendChild(playerContent)
+                })
+                    
+
             })
         })
     }

@@ -17,20 +17,14 @@ class Team {
         teamOnDom.appendChild(teamDiv)
         const modalContent = this.modal.querySelector("#modal-content")
         const playerContent = document.createElement("div")
+        playerContent.classList.add("player")
         teamDiv.addEventListener('click', () => {
             this.modal.classList.remove("hide")
             fetch(`http://localhost:3000/api/teams/${this.id}`)
             .then(r => r.json())
             .then( (t) => {
                 t.players.forEach(player => {
-
-                    playerContent.classList.add("player")
-                    
-                    if (playerContent === `Name: ${player.first_name} ${player.last_name} Shoots: ${player.handedness} Position: ${player.primary_position}`) {
-                        console.log("hello")
-                    }
-                    else
-                    {playerContent.innerHTML += `Name: ${player.first_name} ${player.last_name} Shoots: ${player.handedness} Position: ${player.primary_position}` }
+                    playerContent.innerHTML += `Name: ${player.first_name} ${player.last_name} Shoots: ${player.handedness} Position: ${player.primary_position}` 
                 })
             })
         })

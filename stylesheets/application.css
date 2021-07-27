@@ -11,11 +11,11 @@
 
 #modal {
     position: absolute;
-    width: 60vw;
-    height: 60vh;
-    top: 20vh;
-    left: 20vw;
-    background-color: aqua;
+    width: 80vw;
+    height: 80vh;
+    top: 10vh;
+    left: 10vw;
+    background-color: gray;
 }
 
 .hide {

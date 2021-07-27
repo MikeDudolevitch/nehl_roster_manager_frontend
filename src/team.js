@@ -7,7 +7,7 @@ class Team {
         Team.all.push(this)
     }
     static all = []
-
+    static playerArray = []
 
     addToDom() {
         const teamOnDom = document.querySelector('#team-container')
@@ -24,7 +24,13 @@ class Team {
             .then(r => r.json())
             .then( (t) => {
                 t.players.forEach(player => {
-                    playerContent.innerHTML += `Name: ${player.first_name} ${player.last_name} Shoots: ${player.handedness} Position: ${player.primary_position}` 
+                    playerContent.innerHTML += `<div>
+                        <h4>Name: ${player.first_name} ${player.last_name}</h4>
+                        <h4>Shoots: ${player.handedness}</h4><br>
+                        <button class= "Edit"> Edit Player </button>
+
+                    </div>`
+                    // playerContent.innerHTML += `Name:  Shoots:  Position: ${player.primary_position}` 
                 })
             })
         })

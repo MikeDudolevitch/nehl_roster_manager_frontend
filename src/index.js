@@ -1,6 +1,7 @@
 const modal = document.getElementById("modal")
 const closeModalBtn = document.getElementById("close-modal")
 const modalContent = modal.querySelector("#modal-content")
+const clearContent = document.getElementsByClassName("player")
 
 document.addEventListener('DOMContentLoaded', () => {
     getTeam()

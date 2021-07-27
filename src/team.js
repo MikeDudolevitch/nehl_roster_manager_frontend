@@ -8,8 +8,6 @@ class Team {
     }
     static all = []
 
-    const modalContent = this.modal.querySelector("#modal-content")
-    const playerContent = document.createElement("div")
 
     addToDom() {
         const teamOnDom = document.querySelector('#team-container')
@@ -17,24 +15,28 @@ class Team {
         teamDiv.classList.add("team")
         teamDiv.innerHTML += this.renderTeam()
         teamOnDom.appendChild(teamDiv)
-        
+        const modalContent = this.modal.querySelector("#modal-content")
+        const playerContent = document.createElement("div")
         teamDiv.addEventListener('click', () => {
             this.modal.classList.remove("hide")
-    }
-
-    static getPlayers () {
-        fetch(`http://localhost:3000/api/teams/${this.id}`)
+            fetch(`http://localhost:3000/api/teams/${this.id}`)
             .then(r => r.json())
             .then( (t) => {
                 t.players.forEach(player => {
+
                     playerContent.classList.add("player")
-                    renderPlayer(player)}
-                modalContent.append(playerContent)
+                    
+                    if (playerContent === `Name: ${player.first_name} ${player.last_name} Shoots: ${player.handedness} Position: ${player.primary_position}`) {
+                        console.log("hello")
+                    }
+                    else
+                    {playerContent.innerHTML += `Name: ${player.first_name} ${player.last_name} Shoots: ${player.handedness} Position: ${player.primary_position}` }
+                })
+            })
+        })
+        modalContent.append(playerContent)
     }
 
-    renderPlayer() {
-        playerContent.innerHTML = `Name: ${this.players.first_name} ${this.players.last_name}`
-    }
 
     renderTeam() {
         return (`<h3> ${this.name} </h3>

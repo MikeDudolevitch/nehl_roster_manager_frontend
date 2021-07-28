@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 closeModalBtn.addEventListener('click', () => {
     modal.classList.add("hide")
-    console.log(modalContent.innerHTML)
     modalContent.innerHTML = ""
 })
 
@@ -18,7 +17,6 @@ closeModalBtn.addEventListener('click', () => {
 // })
 
 // function editPlayer() {
-    
 // }
 
 function getTeam(){

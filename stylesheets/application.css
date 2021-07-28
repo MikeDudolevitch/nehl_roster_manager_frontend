@@ -15,11 +15,19 @@
     height: 80vh;
     top: 10vh;
     left: 10vw;
-    background-color: gray;
+    background-color: rgb(80, 80, 80);
+    opacity: 0.8;
 }
 
 #modal-content {
     color: honeydew;
+    font-weight: bold;
+}
+
+#close-modal {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 .hide {
@@ -36,6 +44,7 @@ right: 0;
 }
 
 #team-banner {
-    font-size: large;
+    font-size: 30px;
     text-align: center;
+    color: honeydew;
 }

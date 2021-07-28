@@ -23,5 +23,10 @@
 }
 
 .player {
-    width: relative;
+    
+}
+
+.edit {
+position: absolute;
+right: 0;
 }

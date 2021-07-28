@@ -4,6 +4,10 @@
     object-fit: cover;
 }
 
+#intro {
+    text-align: center;
+}
+
 #team-container {
     display: flex;
     flex-direction: row;

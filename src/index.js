@@ -1,6 +1,7 @@
 const modal = document.getElementById("modal")
 const closeModalBtn = document.getElementById("close-modal")
 const modalContent = modal.querySelector("#modal-content")
+const editPlayerBtn = document.querySelector(".edit")
 
 document.addEventListener('DOMContentLoaded', () => {
     getTeam()
@@ -11,6 +12,14 @@ closeModalBtn.addEventListener('click', () => {
     console.log(modalContent.innerHTML)
     modalContent.innerHTML = ""
 })
+
+// editPlayerBtn.addEventListener('click', () => {
+
+// })
+
+// function editPlayer() {
+    
+// }
 
 function getTeam(){
     fetch('http://localhost:3000/api/teams')

@@ -18,6 +18,10 @@
     background-color: gray;
 }
 
+#modal-content {
+    color: honeydew;
+}
+
 .hide {
     display: none;
 }
@@ -29,4 +33,9 @@
 .edit {
 position: absolute;
 right: 0;
+}
+
+#team-banner {
+    font-size: large;
+    text-align: center;
 }

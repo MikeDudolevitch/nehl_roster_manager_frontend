@@ -7,7 +7,7 @@ class Team {
         Team.all.push(this)
     }
     static all = []
-    
+    teamBanner = document.querySelector("#team-banner")
 
     addToDom() {
         const teamOnDom = document.querySelector('#team-container')
@@ -23,18 +23,13 @@ class Team {
             fetch(`http://localhost:3000/api/teams/${this.id}`)
             .then(r => r.json())
             .then( (t) => {
+                this.teamBanner.innerHTML = t.name 
                 t.players.forEach(player => {
-                    // playerContent.innerHTML += `<div class= "clear-list">
-                    // <div>
-                    //     <h4>Name: ${player.first_name} ${player.last_name}</h4>
-                    //     <h4>Shoots: ${player.handedness}</h4><br>
-                    //     </div>
-                    //     <button class= "Edit"> Edit Player </button>
-                    // </div>`
-                    playerContent.innerHTML += `<h4>Name: ${player.first_name} ${player.last_name} | Number: ${player.jersey_number} | Position: ${player.primary_position} | Shoots: ${player.handedness} | Available to play?: ${player.injured}  </h4> <button class= "edit"> Edit Player </button> <br>` 
+                    playerContent.innerHTML += `<h4>Name: ${player.first_name} ${player.last_name} | Number: ${player.jersey_number} | Position: ${player.primary_position} | Shoots: ${player.handedness} | Available to play?: ${player.injured} <button class= "edit"> Edit Player </button></h4> ` 
                 })
             })
-            modalContent.append(playerContent)
+            // if (modalContent.innerHTML === "")
+                {modalContent.append(playerContent)}
         })
     }
 
@@ -42,4 +37,5 @@ class Team {
         return (`<h3> ${this.name} </h3>
         <img class= "team-image" src= "${this.logo_img}" />`) 
     }
+
 }

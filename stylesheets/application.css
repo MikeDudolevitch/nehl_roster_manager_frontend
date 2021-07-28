@@ -20,7 +20,7 @@
     top: 10vh;
     left: 10vw;
     background-color: rgb(80, 80, 80);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 #modal-content {
@@ -51,4 +51,14 @@ right: 0;
     font-size: 30px;
     text-align: center;
     color: honeydew;
+}
+
+.submit {
+    margin: auto;
+    display: block;
+}
+
+.form-input {
+    margin: auto;
+    display: block;
 }

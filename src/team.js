@@ -6,6 +6,7 @@ class Team {
         this.modal = modal
         Team.all.push(this)
     }
+    
     static all = []
     teamBanner = document.querySelector("#team-banner")
 
@@ -26,7 +27,6 @@ class Team {
         fetch(`http://localhost:3000/api/teams/${this.id}`)
         .then(r => r.json())
         .then( (t) => {
-            console.log(t.players)
             this.teamBanner.innerHTML = t.name 
             const playerContainer = document.createElement("div")
             playerContainer.classList.add("player")
@@ -54,10 +54,17 @@ class Team {
     renderEditForm(player, parent) {
         const newButton = document.createElement("button")
         newButton.innerHTML = "Submit"
+        newButton.classList.add("submit")
         parent.innerHTML = ""
-        parent.append(newButton)
+        // parent.append(newButton)
         const editForm = document.createElement("form")
-        editForm.innerHTML = ``
+        editForm.innerHTML = `
+            First Name: <input type= "text" class= "form-input" value= ${player.first_name}> <br>
+            Last Name: <input type= "text" class= "form-input" value= ${player.last_name}><br>
+            Number: <input type= "text" class= "form-input" value= ${player.jersey_number}><br>
+            Position: <input type= "text" class= "form-input" value= ${player.primary_position}><br>
+            Handedness: <input type= "text" class= "form-input" value= ${player.handedness}><br>
+            Available for upcoming game: <input type= "text" class= "form-input" value= ${!player["injured?"]}><br><br>`
         editForm.append(newButton)
         parent.append(editForm)
         editForm.addEventListener('submit', (e) => {
@@ -69,7 +76,10 @@ class Team {
 
     updatePlayer(form, id) {
         console.log(form, id)
-        this.renderPlayers()
+            fetch(`http://localhost:3000/api/teams/${this.id}/players/${id}`)
+            .then(r => r.json())
+            .then(data => console.log(data, "Here is what is coming back from my fetch"))
+            this.renderPlayers()
     } 
 
     renderTeam() {

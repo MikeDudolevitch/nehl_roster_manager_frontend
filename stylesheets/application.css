@@ -48,6 +48,7 @@ right: 0;
 }
 
 #team-banner {
+    position: relative;
     font-size: 30px;
     text-align: center;
     color: honeydew;
@@ -56,6 +57,7 @@ right: 0;
 .submit {
     margin: auto;
     display: block;
+    padding: 3px 6px;
 }
 
 .form-input {

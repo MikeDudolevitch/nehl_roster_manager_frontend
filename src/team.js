@@ -10,6 +10,7 @@ class Team {
     static all = []
     teamBanner = document.querySelector("#team-banner")
 
+
     addToDom() {
         const teamOnDom = document.querySelector('#team-container')
         const teamDiv = document.createElement("div")
@@ -56,7 +57,6 @@ class Team {
         newButton.innerHTML = "Submit"
         newButton.classList.add("submit")
         parent.innerHTML = ""
-        // parent.append(newButton)
         const editForm = document.createElement("form")
         editForm.innerHTML = `
             First Name: <input type= "text" class= "form-input" value= ${player.first_name}> <br>
@@ -69,17 +69,30 @@ class Team {
         parent.append(editForm)
         editForm.addEventListener('submit', (e) => {
             e.preventDefault()
-            this.updatePlayer(e.target, player.id)
-            // actually edit the player
+            const form = e.target
+            this.updatePlayer(form, player.id)
         })
     }
 
     updatePlayer(form, id) {
-        console.log(form, id)
-            fetch(`http://localhost:3000/api/teams/${this.id}/players/${id}`)
-            .then(r => r.json())
-            .then(data => console.log(data, "Here is what is coming back from my fetch"))
-            this.renderPlayers()
+            fetch(`http://localhost:3000/api/teams/${this.id}/players/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "accept": "application/json"},
+                body: JSON.stringify( 
+                    {
+                        first_name: form[0].value,
+                        last_name: form[1].value,
+                        jersey_number: form[2].value,
+                        primary_position: form[3].value,
+                        handedness: form[4].value,
+                        injured: form[5].value
+                    }
+                )
+            })
+                .then(r => r.json())
+                .then(data => this.renderPlayers(data))
     } 
 
     renderTeam() {

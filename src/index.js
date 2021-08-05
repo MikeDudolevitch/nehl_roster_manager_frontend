@@ -12,13 +12,6 @@ closeModalBtn.addEventListener('click', () => {
     modalContent.innerHTML = ""
 })
 
-// editPlayerBtn.addEventListener('click', () => {
-
-// })
-
-// function editPlayer() {
-// }
-
 function getTeam(){
     fetch('http://localhost:3000/api/teams')
     .then(r => r.json())

@@ -10,7 +10,6 @@ class Team {
     static all = []
     teamBanner = document.querySelector("#team-banner")
 
-
     addToDom() {
         const teamOnDom = document.querySelector('#team-container')
         const teamDiv = document.createElement("div")
@@ -28,12 +27,13 @@ class Team {
         fetch(`http://localhost:3000/api/teams/${this.id}`)
         .then(r => r.json())
         .then( (t) => {
+            
             this.teamBanner.innerHTML = t.name 
             const playerContainer = document.createElement("div")
             playerContainer.classList.add("player")
             t.players.forEach(player => {
                 const playerContent = document.createElement("h4")
-                playerContent.innerHTML += `Name: ${player.first_name} ${player.last_name} | Number: ${player.jersey_number} | Position: ${player.primary_position} | Shoots: ${player.handedness} | Available to play?: ${!player["injured?"]}` 
+                playerContent.innerHTML += `Name: ${player.first_name} ${player.last_name} | Number: ${player.jersey_number} | Position: ${player.primary_position} | Shoots: ${player.handedness} | Available to play?: ${player.injured}` 
                 playerContainer.append(playerContent)
                 this.addPlayerButton(player, playerContent, modalContent)
             })
@@ -64,7 +64,11 @@ class Team {
             Number: <input type= "text" class= "form-input" value= ${player.jersey_number}><br>
             Position: <input type= "text" class= "form-input" value= ${player.primary_position}><br>
             Handedness: <input type= "text" class= "form-input" value= ${player.handedness}><br>
-            Available for upcoming game: <input type= "text" class= "form-input" value= ${!player["injured?"]}><br><br>`
+            Available for upcoming game: <input type= "text" class= "form-input" value= ${player.injured}><br>
+            <input type="radio" name="choice" value=${player.injured} id="choice-yes"> 
+            <label for="choice-yes">Yes</label>
+            <input type="radio" name="choice" value=${player.injured} id="choice-no">
+            <label for="choice-no">No</label><br>`
         editForm.append(newButton)
         parent.append(editForm)
         editForm.addEventListener('submit', (e) => {
@@ -98,6 +102,5 @@ class Team {
     renderTeam() {
         return (`<h3> ${this.name} </h3>
         <img class= "team-image" src= "${this.logo_img}" />`) 
-    }
-
+        }
 }

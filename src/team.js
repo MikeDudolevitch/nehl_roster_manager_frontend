@@ -64,11 +64,7 @@ class Team {
             Number: <input type= "text" class= "form-input" value= ${player.jersey_number}><br>
             Position: <input type= "text" class= "form-input" value= ${player.primary_position}><br>
             Handedness: <input type= "text" class= "form-input" value= ${player.handedness}><br>
-            Available for upcoming game: <input type= "text" class= "form-input" value= ${player.injured}><br>
-            <input type="radio" name="choice" value=${player.injured} id="choice-yes"> 
-            <label for="choice-yes">Yes</label>
-            <input type="radio" name="choice" value=${player.injured} id="choice-no">
-            <label for="choice-no">No</label><br>`
+            Available for upcoming game: <input type= "text" class= "form-input" value= ${player.injured}><br>`
         editForm.append(newButton)
         parent.append(editForm)
         editForm.addEventListener('submit', (e) => {

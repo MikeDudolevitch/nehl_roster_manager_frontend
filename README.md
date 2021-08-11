@@ -1,2 +1,13 @@
-# nehl_roster_manager_frontend
-test
+Welcome to the NEHL Roster Manager App! 
+
+This is the client-side application that works hand-in-hand with the NEHL Roster Manager API. It allows a user to take team and player information from the API, and be able to update player information in real time to keep a roster up to date game in and game out.
+
+To first download the roster manager API, go to this Github repo: https://github.com/MikeDudolevitch/nehl_roster_manager_rails_api
+Copy the repo by navigating to the 'Code' button on the righthand side, and click the clipboard icon. In your terminal, type in:
+git clone git@github.com:MikeDudolevitch/nehl_roster_manager_rails_api.git. Change your directory into newly cloned API's directory. Once inside, run the 'bundle install' command to update Gem dependencies, then run 'rails s' in the terminal to start running a server at http://localhost:3000/ - the client-side portion of the application will communicate with the runing server to access and manipulate roster related data.
+
+To install the Javascript frontend, navigate to this Github repo: https://github.com/MikeDudolevitch/nehl_roster_manager_frontend. Fork and clone from the repo the same way as with the API: click the 'Code' button on the right, click the clipboard icon, then go to your terminal and run 'git clone https://github.com/MikeDudolevitch/nehl_roster_manager_frontend'. Navigate to your newly cloned directory. In the file tree, you can right click/command click (depending of whether you are using a PC or a MAC) and open the 'index.html' file, prompting you to open the file in the browser of your choice. (This is also possible through the command line, however that varies based on what kind of computer you are using).
+
+In your browser, you will see all of the teams in the NEHL (non-existent hockey league)- click on any team's logo and a modal will pop up with their current roster, as retrieved from the API's database. If you would like to update information about an individual player, such as their availability to participate in the next game, or their position, etc. - click on the 'Edit Player' button on the righthand side for the corresponding player. A form will pop up with all of their current information- simply edit the field(s) you want and submit- the status and/or attribute change will now appear in that player's displayed information. 
+
+Thank you for using the NEHL Roster Manager App!
